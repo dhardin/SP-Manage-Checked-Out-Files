@@ -106,7 +106,7 @@ var check_in = (function() {
 
         state_map.url = parseTo(state_map.url, '/Forms');
 
-        listname = state_map.url.substring(state_map.url.lastIndexOf('/'));
+        listname = state_map.url.substring(state_map.url.lastIndexOf('/') + 1);
 
         getListGUIDfromURL(state_map.url, listname, function(results){
             var guid = results.ID;
