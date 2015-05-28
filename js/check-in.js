@@ -51,7 +51,7 @@ var check_in = (function() {
         });
     };
     // End Utility Method /getListItems/
-    getListGUIDfromURL = function(url, callback) {
+    getListGUIDfromURL = function(url, listname, callback) {
         var results = [],
             soapEnv, body;
 
@@ -59,7 +59,9 @@ var check_in = (function() {
         // Don't forget to pass in required parameters!
         soapEnv = '<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">\
   <soap12:Body>\
-    <GetListCollection xmlns="http://schemas.microsoft.com/sharepoint/soap/" />\
+    <GetList xmlns="http://schemas.microsoft.com/sharepoint/soap/">\
+        <listName>' + listname + '</listName>\
+    </GetList>\
   </soap12:Body>\
 </soap12:Envelope>';
 
@@ -104,7 +106,8 @@ var check_in = (function() {
 
         state_map.url = parseTo(state_map.url, '/Forms');
 
-        getListGUIDfromURL(state_map.url, function(guid){
+        getListGUIDfromURL(state_map.url, function(results){
+            var guid = results.ID;
         	
         	getListItems(state_map.url, guid, function(results){
         		console.log(results);
