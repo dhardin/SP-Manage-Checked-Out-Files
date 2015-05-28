@@ -100,8 +100,10 @@ var check_in = (function() {
             return false;
         }
 
+        state_map.url = parseTo(state_map.url, '/forms');
+
         getListGUIDfromURL(state_map.url, function(guid){
-        	state_map.url = parseTo(state_map.url, '/forms');
+        	
         	getListItems(state_map.url, guid, function(results){
         		console.log(results);
         	});
@@ -120,3 +122,13 @@ var check_in = (function() {
         init: init
     };
 })();
+
+
+ // This method for finding specific nodes in the returned XML was developed by Steve Workman. See his blog post
+    // http://www.steveworkman.com/html5-2/javascript/2011/improving-javascript-xml-node-finding-performance-by-2000/
+    // for performance details.
+    $.fn.filterNode = function (name) {
+        return this.find('*').filter(function () {
+            return this.nodeName === name;
+        });
+    }; // End $.fn.filterNode
