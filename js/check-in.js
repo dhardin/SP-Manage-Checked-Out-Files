@@ -88,7 +88,9 @@ var check_in = (function() {
     parseTo = function(fromString, parseToString){
     	var index = fromString.indexOf(parseToString);
 
-    	return fromString.substring(0, parseToString);
+
+
+    	return index > -1 ? fromString.substring(0, parseToString) : fromString;
 
     };
 
@@ -100,7 +102,7 @@ var check_in = (function() {
             return false;
         }
 
-        state_map.url = parseTo(state_map.url, '/forms');
+        state_map.url = parseTo(state_map.url, '/Forms');
 
         getListGUIDfromURL(state_map.url, function(guid){
         	
