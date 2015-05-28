@@ -98,10 +98,9 @@ var check_in = (function() {
 
      // Begin Utility Method /processData/
      processData = function(results) {
-        var data = [{}],
+        var data = [],
             attrObj = {},
-            i, j, attribute,
-            chart = this.model;
+            i, j, attribute;
 
 
         //repackage data into an array which each index
