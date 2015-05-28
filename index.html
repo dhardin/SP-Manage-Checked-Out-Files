@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>SP Manage Checked Out Files</title>
+    <style rel="stylesheet" href="css/style.css" />
+    <script src="lib/jquery.js"></script>
+    <script src="js/check-in.js"></script>
+</head>
+
+<body>
+    <div id="#container">
+        <lable>List URL
+            <input type="text" id="list-url" />
+        </lable>
+        <button id="fetch">Fetch</button>
+        <div id="results"></div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        check_in.init($('#container'));
+    });
+    </script>
+</body>
+
+</html>
