@@ -90,7 +90,7 @@ var check_in = (function() {
 
 
 
-    	return index > -1 ? fromString.substring(0, parseToString) : fromString;
+    	return index > -1 ? fromString.substring(0, index) : fromString;
 
     };
 
