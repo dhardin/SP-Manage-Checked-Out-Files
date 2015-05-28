@@ -137,6 +137,7 @@ var check_in = (function() {
         state_map.url += '/';
 
         getListGUIDfromURL(state_map.url, listname, function(results){
+            results = processData(results);
             if(!results || results.length == 0){
                 return;
             }
